@@ -19,17 +19,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $confirm_password = sanitizeString($_POST['confirm_password']);
   };
 
+  if(isset($_POST['location'])){
+    $location = sanitizeString($_POST['location']);
+  };
+
   $username_err = validate_username($username);
   $password_err = validate_password($password);
   $confirm_password_err = validate_confirmPassword($password,$confirm_password);
-
-  echo $usertype;
   if(empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
     $salt1 = "jau&2js"; $salt2 = "aow@ues";
   $token = hash('ripemd128', "$salt1$password$salt2");
     if($username!= "" && $password != "" && $confirm_password != "" ) {
       $connection = createConnection($GLOBALS['hostname'],$GLOBALS['database'], $GLOBALS['username_db'],$GLOBALS['password_db']);
-      insertDonor($connection, $username, $password);
+      insertDonor($connection, $username, $password,$location);
       $connection->close();
     }
   }
@@ -76,8 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
         <div class="form-group">
             <label for="location">Location</label>
-            <input class="form-control" type="text" name="location" placeholder="Enter the registered location" value="<?php echo $confirm_password; ?>">
-                <span class="help-block text-danger"><?php echo $confirm_password_err; ?></span>
+            <input class="form-control" type="text" name="location" placeholder="Enter the registered location" value="">
             <br><br>
         </div>
                <input type="submit" value="Register" name="register" class="btn btn-outline-primary btn-block">

@@ -9,10 +9,6 @@
    $reg_password = fix_string($_POST["reg_password"]);
   }
 
-  if(isset($_POST['location'])){
-   $location = fix_string($_POST["location"]);
-  }
-
   $fail = validate_username($reg_username);
   $fail .= validate_password($reg_password);
 
@@ -33,12 +29,12 @@ function validate_confirmPassword($password,$confirm_password) {
   else return "";
 };
 
-  function insertDonor($conn, $username, $password){
+  function insertDonor($conn, $username, $password,$location){
     $username= mysql_entities_fix_string($conn, $username);
     $password= mysql_entities_fix_string($conn,$password);
     $salt1 = "jau&2js"; $salt2 = "aow@ues";
     $token = hash('ripemd128', "$salt1$password$salt2");
-    $sql = "INSERT INTO donor VALUES (NULL,'$username','$token')";
+    $sql = "INSERT INTO donor VALUES (NULL,'$username','$token','$location')";
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
         header('location: loginUI.php');

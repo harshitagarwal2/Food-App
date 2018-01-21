@@ -1,0 +1,22 @@
+#home-section {
+  background: url("../img/home3.jpg") no-repeat center top fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+  justify-content: center;
+}
+
+#login-section {
+  max-width: 600px;
+}
+
+#main-footer {
+  opacity: 0.8;
+  bottom: 0;
+}
+
+#footer-text * {
+  display: inline;
+}

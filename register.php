@@ -48,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    <link rel="stylesheet" href="assets/css/style.css">
    <script src="assets/js/loginUI.js"></script>
-   <title>Pantry-Login</title>
+   <title>Access</title>
  </head>
  <body id="home-section">
    <?php require_once('assets/includes/header.html') ?>
@@ -58,29 +58,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
        <div class="col mx-auto" style="max-width: 600px;">
          <div class="card card-form text-center mt-4">
            <div class="card-body" id="registerCard">
-             <p>Please fill out this form to register</p>
+             <h3 class="mb-3">Donor Register</h3>
               <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" onsubmit="return validate(this)" >
                 <div class="form-group">
-              <label for="username">Username</label>
-              <input class="form-control" type="text" name="username" placeholder="Enter username" value="<?php echo $username; ?>">
-                <span class="help-block text-danger"><?php echo $username_err; ?></span>
-          </div>
-          <div class="form-group">
-            <label for="password">password</label>
-            <input class="form-control" type="password" id="password" data-toggle="password" name="password" placeholder="Enter password" value="<?php echo $password; ?>">
-              <span class="help-block text-danger"><?php echo $password_err; ?></span>
-        </div>
-        <div class="form-group">
-            <label for="password">Confirm Password</label>
-            <input class="form-control" type="password" name="confirm_password" placeholder="Enter password again" value="<?php echo $confirm_password; ?>">
-                <span class="help-block text-danger"><?php echo $confirm_password_err; ?></span>
-            <br><br>
-        </div>
-        <div class="form-group">
-            <label for="location">Location</label>
-            <input class="form-control" type="text" name="location" placeholder="Enter the registered location" value="">
-            <br><br>
-        </div>
+                  <label for="username">Username</label>
+                  <input class="form-control" type="text" name="username" placeholder="Enter username" value="<?php echo $username; ?>">
+                  <span class="help-block text-danger"><?php echo $username_err; ?></span>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input class="form-control" type="password" id="password" data-toggle="password" name="password" placeholder="Enter password" value="<?php echo $password; ?>">
+                  <span class="help-block text-danger"><?php echo $password_err; ?></span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Confirm Password</label>
+                    <input class="form-control" type="password" name="confirm_password" placeholder="Enter password again" value="<?php echo $confirm_password; ?>">
+                    <span class="help-block text-danger"><?php echo $confirm_password_err; ?></span>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input class="form-control" type="text" name="location" placeholder="Enter the registered location" value="">
+                </div>
                <input type="submit" value="Register" name="register" class="btn btn-outline-primary btn-block">
              </form>
            </div>
@@ -88,17 +86,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
        </div>
      </div>
    </div>
-   <footer class="bg-white position-absolute w-100" id="main-footer">
-       <div class="container bg-faded">
-         <div class="row">
-           <div class="col text-center">
-             <div class="py-2" id="footer-text">
-               <h5>Davis Pantry</h5>
-               <p>Copyright &copy; 2018</p>
-             </div>
-           </div>
-         </div>
-       </div>
-   </footer>
- </body>
+   <?php require_once('assets/includes/footer.html') ?>
+  </body>
 </html>

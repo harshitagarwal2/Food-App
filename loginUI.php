@@ -28,7 +28,7 @@ $username_err = $password_err = "";
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/loginUI.js"></script>
-    <title>Pantry-Login</title>
+    <title>Access</title>
   </head>
   <body id="home-section">
     <?php require_once('assets/includes/header.html') ?>
@@ -38,38 +38,28 @@ $username_err = $password_err = "";
         <div class="col mx-auto" style="max-width: 600px;">
           <div class="card card-form text-center mt-4">
             <div class="card-body" id="loginCard">
+              <h3 class="mb-4">Donor Log In</h3>
               <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"  onsubmit="return validate(this)">
-                          <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                              <label>Username:<sup class="text-danger">*</sup></label>
-                              <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
-                              <span class="help-block text-danger"><?php echo $username_err; ?></span>
-                          </div>
-                          <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                              <label>Password:<sup class="text-danger">*</sup></label>
-                              <input type="password" name="password" class="form-control">
-                              <span class="help-block text-danger"><?php echo $password_err; ?></span>
-                          </div>
-                          <input type="submit" value="Log In" name="login" class="btn btn-outline-primary btn-block">
-                        </form><br>
-
+                <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                  <label>Username:<sup class="text-danger">*</sup></label>
+                  <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
+                  <span class="help-block text-danger"><?php echo $username_err; ?></span>
+                </div>
+                <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                  <label>Password:<sup class="text-danger">*</sup></label>
+                  <input type="password" name="password" class="form-control">
+                  <span class="help-block text-danger"><?php echo $password_err; ?></span>
+                </div>
+                <input type="submit" value="Log In" name="login" class="btn btn-outline-primary btn-block">
+              </form>
             </div>
-            <br />
-            <a href="register.php">Click Here to register</a>
+            <div class="card-footer p-1">
+              <a class="small" href="register.php">Click Here to register</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <footer class="bg-white position-absolute w-100" id="main-footer">
-        <div class="container bg-faded">
-          <div class="row">
-            <div class="col text-center">
-              <div class="py-2" id="footer-text">
-                <h5>Davis Pantry</h5>
-                <p>Copyright &copy; 2018</p>
-              </div>
-            </div>
-          </div>
-        </div>
-    </footer>
+    <?php require_once('assets/includes/footer.html') ?>
   </body>
 </html>

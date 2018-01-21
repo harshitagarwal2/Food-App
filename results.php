@@ -51,7 +51,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Davis Pantry</title>
+    <title>Access</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/awesomplete.css">
@@ -63,7 +63,7 @@
     <script src="assets/js/results.js"></script>
     <script src="assets/js/locationinput.js"></script>
   </head>
-  <body class="bg-light">
+  <body id="results-body">
     <?php include("assets/includes/header.html");?>
     <div class="container mt-5 pt-4">
       <div class="row">

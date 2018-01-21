@@ -5,12 +5,12 @@
     $location = sanitizeString($_POST['location']);
     $connection = createConnection($GLOBALS['hostname'],$GLOBALS['database'], $GLOBALS['username_db'],$GLOBALS['password_db']);
     $sql_location = mysql_entities_fix_string($connection, $location);
-    $sql = "SELECT * FROM foodlist WHERE location = '$sql_location'";
+    $sql = "SELECT f.*, d.username FROM foodlist f INNER JOIN donor d ON f.donorid=d.userid WHERE f.location = '$sql_location'";
     $result = $connection->query($sql);
     if (!$result) die($connection->error);
     elseif ($result->num_rows) {
       $i = 0;
-      $rows[] = $row;
+      $rows[] = null;
       while($row = $result->fetch_array(MYSQLI_NUM)) {
         $rows[$i] = $row;
         $i = $i + 1;

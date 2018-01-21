@@ -1,4 +1,4 @@
-var createFoodCard = function(username, location, img, desc, posted){
+var createFoodCard = function(username, location, img, desc){
   // <div class="card">
   //   <div class="card-body">
   //     <h5 class="mb-1">Username</h5>
@@ -7,9 +7,6 @@ var createFoodCard = function(username, location, img, desc, posted){
   //   <img class="card-img-top" src="http://via.placeholder.com/600x300" alt="Card image cap">
   //   <div class="card-body">
   //     Food description
-  //   </div>
-  //   <div class="card-footer text-muted">
-  //     2 days ago
   //   </div>
   // </div>
   var card = document.createElement("div");
@@ -36,20 +33,16 @@ var createFoodCard = function(username, location, img, desc, posted){
   description.appendChild(document.createTextNode(desc));
   card.appendChild(description);
 
-  var foot = document.createElement("div");
-  foot.classList.add("card-footer");
-  foot.classList.add("text-muted");
-  foot.appendChild(document.createTextNode(posted));
-  card.appendChild(foot);
-
   return card;
 };
 
 document.addEventListener('DOMContentLoaded', function(){
+  document.getElementById('result-num').appendChild(document.createTextNode(initialResults.length));
+
   const resultWrap = document.getElementById('result-wrap');
 
   for (var i=0; i<initialResults.length; i++) {
     var r = initialResults[i];
-    resultWrap.appendChild(createFoodCard("Username", r[4], r[3], r[2], "? days ago"));
+    resultWrap.appendChild(createFoodCard(r[5], r[4], r[3], r[2]));
   }
 }, false);

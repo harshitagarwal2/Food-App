@@ -37,12 +37,13 @@ var createFoodCard = function(username, location, img, desc){
 };
 
 document.addEventListener('DOMContentLoaded', function(){
+  console.dir(initialResults);
   document.getElementById('result-num').appendChild(document.createTextNode(initialResults.length));
 
   const resultWrap = document.getElementById('result-wrap');
 
   for (var i=0; i<initialResults.length; i++) {
     var r = initialResults[i];
-    resultWrap.appendChild(createFoodCard(r[5], r[4], r[3], r[2]));
+    resultWrap.appendChild(createFoodCard(r[0], r[1], r[2], r[3]));
   }
 }, false);

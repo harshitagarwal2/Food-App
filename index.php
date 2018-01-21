@@ -18,8 +18,8 @@
               <div class="col text-center">
                 <div class="card-body">
                   <h3 class="mb-3">Find food near your location</h3>
-                  <form class="form-inline" method="post" action="" onsubmit="return validate(this)">
-                    <input class="form-control w-75" type="search" placeholder="Enter location" aria-label="Search">
+                  <form class="form-inline" method="post" action="results.php" onsubmit="return validate(this)">
+                    <input class="form-control w-75" type="search" name="location" placeholder="Enter location!" aria-label="Search">
                     <input type="submit" value="Search" class="btn btn-outline-primary w-25">
                   </form>
                 </div>

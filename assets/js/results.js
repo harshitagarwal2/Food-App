@@ -27,7 +27,8 @@ var createFoodCard = function(username, location, img, desc, posted){
 
   var image = document.createElement("img");
   image.classList.add("card-img-top");
-  image.src = img;
+  image.classList.add("food-card");
+  image.setAttribute("style", "background-image: url('" + img + "');");
   card.appendChild(image);
 
   var description = document.createElement("div");
@@ -47,9 +48,8 @@ var createFoodCard = function(username, location, img, desc, posted){
 document.addEventListener('DOMContentLoaded', function(){
   const resultWrap = document.getElementById('result-wrap');
 
-  var example = createFoodCard("Username", "Location", "http://via.placeholder.com/600x300", "Food Description", "1 days ago");
-  resultWrap.appendChild(example);
-
-  var example2 = createFoodCard("Username2", "Location2", "http://via.placeholder.com/600x300", "Food Description2", "2 days ago");
-  resultWrap.appendChild(example2);
+  for (var i=0; i<initialResults.length; i++) {
+    var r = initialResults[i];
+    resultWrap.appendChild(createFoodCard("Username", r[4], r[3], r[2], "? days ago"));
+  }
 }, false);
